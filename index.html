@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="container-fluid text-center text-white bg-info p-1">
+        <div class="title">
+            <h1>Weather Dashboard</h1>
+        </div>
+    </header>
+
+    <!--City search-->
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-3 p-2 search-column">
+
+                <!--city search form-->
+                <form class="col-lg-12 text-black bg-light p-2" id="city-search">
+                    <h5 class="mt-2 m-3">Search for a City; </h5>
+
+                    <div>
+                        <input id="city-search-value" type="text" autofocus="true" class="form-input m-3"
+                            placeholder="Enter a city" />
+                    </div>
+
+                    <div>
+                        <button id="city-search-btn" class="btn btn-primary m-3" type="button">Search</button>
+                    </div>
+                </form>
+                <!--Previously searched cities-->
+                <div class="past-cities" id="past-cities-buttons"></div>
+            </div>
+            <!--Current weather-->
+            <div class="col-12 col-md-5 m-3 ">
+                <div class="row selected-city" id="current-forecast">
+                    <div class="col-12">
+                        <h2 id="current-city"></h2>
+                        <div id="current-container" class="list-group"></div>
+                    </div>
+
+                    <!--Five Day Forecast Container-->
+                    <div class="row m-3" id="five-day-weather">
+                        <h3 id="five-day-forecast"></h3>
+                        <h2 class="col-md-12" id="forecast"></h2>
+                        <div class="d-flex" id="five-day-container"></div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="./asset/script.js"></script>
+</body>
+
+</html>
