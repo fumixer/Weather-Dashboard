@@ -8,6 +8,13 @@ var fiveDayContainerEl = document.querySelector("#five-day-container");
 var fivedayForecastEl = document.querySelector("#five-day-forecast")
 var searchHistArray = JSON.parse(localStorage.getItem("last-city")) || [];
 
+//Show the history on the page load
+$(document).ready( function() {
+    loadCities();
+    console.log(searchHistArray)
+
+})
+
 //fetch current weather conditions from API
 var getCityWeather = function (city) {
     var apiKey = "764fe4344a47eb0c47dfae88fe282261"
@@ -90,6 +97,7 @@ var displayUv = function (index) {
     //change UV color depends on the score
     if (index.current.uvi <= 4) {
         uvEl.setAttribute("class", "badge badge-success")
+        // uvEl.style.color = 'green';
     } 
     else if (index.current.uvi > 4 && index.current.uvi <= 7.99) {
         uvEl.setAttribute("class", "badge badge-warning")
