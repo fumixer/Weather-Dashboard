@@ -1,3 +1,7 @@
+// require('dotenv').config();
+// var testAPIkey = new ApiClient(process.env.apiKey)
+// console.log('TEST API KEY', testAPIkey);
+
 var weatherContainerEl = document.querySelector("#current-container");
 var citySearchInputEl = document.querySelector("#current-city");
 var fiveDayContainerEl = document.querySelector("#five-day-container");
