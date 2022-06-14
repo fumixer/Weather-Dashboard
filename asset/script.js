@@ -9,10 +9,9 @@ var fivedayForecastEl = document.querySelector("#five-day-forecast")
 var searchHistArray = JSON.parse(localStorage.getItem("last-city")) || [];
 
 //Show the history on the page load
+//document.ready is a part of javascript to interact with the browser and execute upon page load
 $(document).ready( function() {
     loadCities();
-    console.log(searchHistArray)
-
 })
 
 //fetch current weather conditions from API
