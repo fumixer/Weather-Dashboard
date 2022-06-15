@@ -8,7 +8,7 @@ This is a simple weather checker.
 
 ## Technologies
 1. Bootstrap
-2. OpenWeather
+2. OpenWeatherMap
 
 ## Screen shot of the deployed website
 ![Screenshot](./asset/Image/Screen%20Shot%20Weather%20dashboard.png)
