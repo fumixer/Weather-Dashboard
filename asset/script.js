@@ -1,3 +1,4 @@
+// This is for hiding apiKey from public but I couldn't do it this time. I am leaving this to remember for later. 
 // require('dotenv').config();
 // var testAPIkey = new ApiClient(process.env.apiKey)
 // console.log('TEST API KEY', testAPIkey);
@@ -14,7 +15,7 @@ $(document).ready( function() {
     loadCities();
 })
 
-//fetch current weather conditions from API
+//Taking the current weather information from API
 var getCityWeather = function (city) {
     var apiKey = "764fe4344a47eb0c47dfae88fe282261"
     var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
@@ -26,14 +27,14 @@ var getCityWeather = function (city) {
 
 }
 
-//Display the result fo the cuurent day
+//Showing the result(current weather)
 var displayWeather = function (weather) {
     //clear content upon new search
     weatherContainerEl.textContent = "";
     citySearchInputEl.textContent = "";
     fivedayForecastEl.textContent = "";
 
-    //apending current weather info
+    //apending current weather information from API
     var currentCity = document.createElement("span")
     currentCity.textContent = weather.name;
     citySearchInputEl.appendChild(currentCity);
@@ -65,14 +66,14 @@ var displayWeather = function (weather) {
     fivedayEl.textContent = "5-Day Forecast";
     fivedayForecastEl.appendChild(fivedayEl)
 
-    //Get UV Index
+    //UV Index from API
     var lat = weather.coord.lat;
     var lon = weather.coord.lon;
     getUv(lat, lon)
 
 };
 
-//fetch current UV conditions from API
+//Get infromation about current UV score from API
 var getUv = function (lat, lon) {
     var apiKey = "764fe4344a47eb0c47dfae88fe282261"
     var apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}`
@@ -108,7 +109,7 @@ var displayUv = function (index) {
     weatherContainerEl.appendChild(uvEl);
 }
 
-//fetch 5day weather conditions from API
+//Get 5day weather information from API
 var getFiveDay = function (city) {
     var apiKey = "764fe4344a47eb0c47dfae88fe282261"
     var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
@@ -121,7 +122,7 @@ var getFiveDay = function (city) {
 }
 
 var displayFiveWeather = function (weather) {
-    //clear content upon new search
+    //clear existing information before new search
     fiveDayContainerEl.textContent = "";
 
     //for loop of 5day forecast
@@ -129,7 +130,7 @@ var displayFiveWeather = function (weather) {
     for (var i = 5; i < weather.length; i = i + 8) {
         var dailyWeather = weather[i];
 
-        //apending 5day weather info
+        //append 5-Day weather information
         var fiveDayWeatherEl = document.createElement("div");
         fiveDayWeatherEl.classList = "card bg-info text-light m-1.5";
 
@@ -163,7 +164,7 @@ var displayFiveWeather = function (weather) {
 }
 
 
-//save searched cities
+//Saving searched cities in local strage
 function saveSearchHistory(city) {
     if (!searchHistArray.includes(city)) {
         searchHistArray.push(city);
@@ -172,7 +173,7 @@ function saveSearchHistory(city) {
     }
 }
 
-//load searched cities upon opening/refreshing page
+//load searched cities when opening/refreshing page
 function loadCities() {
     var quickSearchList = document.querySelector(".past-cities");
     quickSearchList.innerHTML = '';
@@ -188,7 +189,7 @@ function loadCities() {
     });
 }
 
-//event listener for past cities
+//Event listener for past searched cities
 document.querySelector(".past-cities").addEventListener("click", function (e) {
     getCityWeather(e.target.textContent);
     getFiveDay(e.target.textContent);
@@ -203,7 +204,7 @@ var citySearch = function () {
 
 }
 
-//event listener for city search bar
+//Event listener for city search bar
 document.querySelector("#city-search-btn").addEventListener("click", function () {
     citySearch();
 });
